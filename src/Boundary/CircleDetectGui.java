@@ -838,6 +838,9 @@ int population;
         pso_button.setEnabled(false);
         pso_detect.setEnabled(false);
         
+        multipleCircleFunction=null;
+        tempFunction=null;
+        
         String name;
         FileNameExtensionFilter filter = new FileNameExtensionFilter("JPEG file", "jpg", "jpeg");
         fileChooser.addChoosableFileFilter(filter);
