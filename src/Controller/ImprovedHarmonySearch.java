@@ -60,6 +60,8 @@ public final class ImprovedHarmonySearch {
     
     public String[] HMlama;
     public String[] HMbaru;
+    public String parameterAkhir;
+    
     int xtemp, ytemp,rtemp;
     
     public ImprovedHarmonySearch(BufferedImage Edge,BufferedImage Original, boolean multiple,String CircleColor,int Thick, String Algo){
@@ -122,7 +124,7 @@ public final class ImprovedHarmonySearch {
                 besty0=best[1];
                 bestx0=best[0]; 
                 
-                
+                parameterAkhir="HM akhir; rad= "+bestrad+",x0="+bestx0+",y0="+besty0; 
                 
                
                 
@@ -214,7 +216,9 @@ public final class ImprovedHarmonySearch {
         return harmonyMemory;
     }
     
-    
+    public String lastparam(){
+        return parameterAkhir;
+    }
     
   private void initializeProblemAndParameter(){
         decTotal =3; 

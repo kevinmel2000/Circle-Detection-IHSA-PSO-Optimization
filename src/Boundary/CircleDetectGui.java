@@ -842,7 +842,7 @@ int population;
         tempFunction=null;
         
         String name;
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("JPEG file", "jpg", "jpeg");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("JPEG file", "jpg", "jpeg","png");
         fileChooser.addChoosableFileFilter(filter);
          int returnVal = fileChooser.showOpenDialog(this);
          if (returnVal == JFileChooser.APPROVE_OPTION){
@@ -852,13 +852,21 @@ int population;
              try {
                 originalImage  = ImageIO.read(imageFile);
                  } catch (Exception e){
-            }
-             ImageIcon image = new ImageIcon(originalImage);             
-             namaFile.setText(name);
-             Original.setIcon(image);  
-             EdgeButton.setEnabled(true);
-             old="";
+            } 
+             String tipedata=null;
              
+            tipedata=fileChooser.getTypeDescription(imageFile);
+            if (tipedata!="PNG File"|| tipedata!="JPG File") {
+                    JOptionPane.showMessageDialog(null, "Bukan File gambar dengan tipe .JPG atau .PNG" ,"ERROR ",JOptionPane.ERROR_MESSAGE); 
+             }
+            else{
+                ImageIcon image = new ImageIcon(originalImage);             
+                namaFile.setText(name);
+                Original.setIcon(image);  
+                EdgeButton.setEnabled(true);
+                old="";
+            }
+            
     }//GEN-LAST:event_jButton1ActionPerformed
 
     }    
