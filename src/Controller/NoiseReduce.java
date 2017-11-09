@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Entity.ImageStorage;
 import java.awt.image.BufferedImage;
 
 import java.util.Arrays;
@@ -76,14 +77,13 @@ public class NoiseReduce {
             }
             int process = r*100/((img.getWidth()-(kernelWidth / 2))*(img.getHeight()-(kernelWidth / 2)))+1;
         }
-       
+       ImageStorage noiseReduce = new ImageStorage();
+       noiseReduce.setNoiseReduceImage(img);
     }
-    
-    
     
 
     public BufferedImage getImage(){
-        return img;
+        return ImageStorage.getNoiseReduceImage();
     }
     
 }

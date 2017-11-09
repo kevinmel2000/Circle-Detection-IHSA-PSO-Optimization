@@ -7,6 +7,7 @@ package Controller;
 
 import Entity.HarmonyMemory;
 import Entity.Parameter;
+import Entity.StringStorage;
 
 import java.awt.image.BufferedImage;
 import java.util.Random;
@@ -94,7 +95,8 @@ public final class ImprovedHarmonySearch {
                     HMlama[i]= "HM lama ["+i+"] yi:"+yi+",yj: "+yj+", yk: "+yk+" x0: "+x0+",y0: "+y0+"  rad:"+rad+ " f(x): "+fit+"\n" ;
                    
                }
-
+                
+                
                 improviseNewHarmony();
                 
                
@@ -126,7 +128,8 @@ public final class ImprovedHarmonySearch {
                 
                 parameterAkhir="HM akhir; rad= "+bestrad+",x0="+bestx0+",y0="+besty0; 
                 
-               
+                StringStorage stringstorage = new StringStorage();
+                stringstorage.setStringIHS(HMlama, HMbaru, hmSize);
                 
         }
         else{//detect Multiple Circle

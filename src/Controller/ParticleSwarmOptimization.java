@@ -7,6 +7,7 @@ package Controller;
 
 import Entity.Parameter_PSO;
 import Entity.Particle;
+import Entity.StringStorage;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
@@ -137,6 +138,8 @@ public class ParticleSwarmOptimization {
                     Pbaru[i]= "P baru ["+i+"] yi:"+yi+",yj: "+yj+", yk: "+yk+" x0: "+x0+",y0: "+y0+"  rad:"+rad+ " f(x): "+fit+"\n" ;
       }
       
+     StringStorage psostring = new StringStorage();
+     psostring.setStringPSO(Plama, Pbaru, population);
   }
   
   private  int minimum(){

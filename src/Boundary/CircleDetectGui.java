@@ -821,7 +821,7 @@ int population;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         ImageType.setEnabled(true);
-         bwstatic.setEnabled(false);
+        bwstatic.setEnabled(false);
         parstatic.setEnabled(false);
         functionCheck.setEnabled(false);
         combokernel.setEnabled(false);
@@ -831,7 +831,7 @@ int population;
         functionDouble.setEnabled(false);
         finaledge.setEnabled(false);
         multipleDetect.setEnabled(false);
-       LogButton.setEnabled(false);
+        LogButton.setEnabled(false);
         After.setIcon(null);
         circleLabel.setIcon(null);
         textFx.setText("");

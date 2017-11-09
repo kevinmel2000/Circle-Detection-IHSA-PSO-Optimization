@@ -6,6 +6,7 @@
 package Controller;
 
 import Boundary.CircleDetectGui;
+import Entity.StringStorage;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
@@ -88,28 +89,13 @@ public class Controller {
     }
      
     
-
-    public void EdgeDetection1(int LowT,int ratio){
-        
-        //untuk deteksi tepi canny opencv
-        System.loadLibrary( Core.NATIVE_LIBRARY_NAME );
-         //File input = new File("digital_image_processing.jpg
-         byte[] data = ((DataBufferByte) OriginalImage.getRaster().getDataBuffer()).getData();
-         Mat mat = new Mat(OriginalImage.getHeight(), OriginalImage.getWidth(), CvType.CV_8UC3);
-         mat.put(0, 0, data);
-         
-         Mat mat1 = new Mat(OriginalImage.getHeight(),OriginalImage.getWidth(),CvType.CV_8UC1);
-         Mat mat2= new Mat(OriginalImage.getHeight(),OriginalImage.getWidth(),CvType.CV_8UC1);
-         Imgproc.cvtColor(mat, mat1, Imgproc.COLOR_RGB2GRAY);
-         Imgproc.Canny(mat1, mat2, LowT, LowT*ratio, 5, true);
-         
-
-         byte[] data1 = new byte[mat2.rows() * mat2.cols() * (int)(mat2.elemSize())];
-         mat2.get(0, 0, data1);
-         BufferedImage image1 = new BufferedImage(mat2.cols(),mat2.rows(), BufferedImage.TYPE_BYTE_GRAY);
-         image1.getRaster().setDataElements(0, 0, mat2.cols(), mat2.rows(), data1);
-         Edge=image1;
-    }
+     
+     public void EdgeDetection1(int LowT,int ratio){
+         CannyDetector canny = new CannyDetector();
+         canny.setImage(OriginalImage, LowT, ratio);
+         canny.processEdge();
+         Edge=canny.getImage();
+     }
     
     public void EdgeDetection(){
         //untuk deteksi tepi cany manual
@@ -435,20 +421,20 @@ public class Controller {
  
     
      public String[] getHMlama(){
-        return HMlama;
+        return StringStorage.getoldHM();
     }
     
     public String[] getHMbaru(){
-        return HMbaru;
+        return StringStorage.getnewHM();
     }
     
     
     public String[] getNewP(){
-        return Pbaru;
+        return StringStorage.getnewP();
     }
     
     public String[] getOldP(){
-        return Plama;
+        return StringStorage.getoldP();
     }
      
     
