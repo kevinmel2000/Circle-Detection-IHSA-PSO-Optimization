@@ -704,14 +704,7 @@ public final class ImprovedHarmonySearch {
     }
     
    
-    
-    public String[] getHMlama(){
-        return HMlama;
-    }
-    
-    public String[] getHMbaru(){
-        return HMbaru;
-    }
+
 }
 
 

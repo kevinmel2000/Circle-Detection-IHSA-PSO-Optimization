@@ -9,15 +9,10 @@ import Boundary.CircleDetectGui;
 import Entity.StringStorage;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferByte;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import org.opencv.core.Core;
-import org.opencv.core.CvType;
-import org.opencv.core.Mat;
-import org.opencv.imgproc.Imgproc;
 
 /**
  *
@@ -39,11 +34,6 @@ public class Controller {
     BufferedImage ClearImage=null;
     String SelectColor ;
   
-    
-    
-    String[] HMbaru, HMlama;
-   
-    String[] Plama , Pbaru;
     
     private int width, height;
 
@@ -84,8 +74,6 @@ public class Controller {
         y0= pso.gety();
         rad1=pso.getr();
         
-        Plama=pso.getPlama();
-        Pbaru=pso.getPbaru();
     }
      
     
@@ -134,10 +122,6 @@ public class Controller {
          y0= ihs.gety0();
          rad1= ihs.getRad();
          Circle = DrawCircle (thick,SelectColor,x0,y0,rad1,OriginalImage, OriginalImage.getWidth(), OriginalImage.getHeight());
-         
-        
-         HMbaru= ihs.getHMbaru();
-         HMlama = ihs.getHMlama();
     }
 
     public void DrawCircleWithEdge(BufferedImage edge1,int xcenter, int ycenter, int radius){

@@ -429,11 +429,5 @@ public class ParticleSwarmOptimization {
       return Particle[bestIndex].getSolutionVector(2);
   }
   
-  public String[] getPlama(){
-      return Plama;
-  }
-  
- public String[] getPbaru(){
-     return Pbaru;
- }
+
 }
