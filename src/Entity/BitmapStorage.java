@@ -23,7 +23,7 @@ public class BitmapStorage
  }
 
     BitmapStorage() {
-        //throw new UnsupportedOperationException("Gambar tidak di suport");
+       
     }
 
  public void fill(final Color c)

@@ -5,6 +5,8 @@
  */
 package Controller;
 
+import Entity.EdgePixel;
+import Entity.PixelVector;
 import Entity.HarmonyMemory;
 import Entity.Parameter;
 import Entity.StringStorage;

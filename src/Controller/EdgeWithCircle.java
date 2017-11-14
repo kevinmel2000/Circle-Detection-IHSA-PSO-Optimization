@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Entity.ImageStorage;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
@@ -211,7 +212,9 @@ public class EdgeWithCircle {
     
     public BufferedImage getImage()
     {
-        return newImage;
+        ImageStorage storage = new ImageStorage();
+        storage.setEdgeWithCircle(newImage);
+        return storage.getEdgeWithCircle();
     }
     
     public float getFitness(){

@@ -5,6 +5,8 @@
  */
 package Controller;
 
+import Entity.EdgePixel;
+import Entity.PixelVector;
 import Entity.Parameter_PSO;
 import Entity.Particle;
 import Entity.StringStorage;

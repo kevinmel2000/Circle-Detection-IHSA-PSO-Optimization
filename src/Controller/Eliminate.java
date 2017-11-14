@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Entity.ImageStorage;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
@@ -98,7 +99,10 @@ public class Eliminate {
     
     
     public BufferedImage getEliminateImage(){
-        return newImage;
+        ImageStorage storage = new ImageStorage();
+        storage.setEliminate(newImage);
+        return storage.getStaticEliminate();
+        //return newImage;
     }
     
 }

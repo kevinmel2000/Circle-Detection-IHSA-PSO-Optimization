@@ -5,7 +5,7 @@
  */
 package Controller;
 
-import Controller.PixelVector;
+import Entity.PixelVector;
 
 /**
  *

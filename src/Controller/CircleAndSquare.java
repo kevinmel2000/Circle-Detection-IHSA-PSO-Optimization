@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Entity.ImageStorage;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
@@ -84,7 +85,11 @@ public class CircleAndSquare {
     }
     
     public BufferedImage getSquareImage(){
-        return Square;
+        ImageStorage storage = new ImageStorage();
+        storage.setCircleAndSquare(Square);
+        return storage.getCircleAndSquare();
+       // return Square;
+        
     }
     
 }

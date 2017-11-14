@@ -10,6 +10,7 @@ package Controller;
  * @author eek
  */
 import Entity.BitmapStorage;
+import Entity.ImageStorage;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
@@ -77,14 +78,16 @@ public class CircleToSquare {
              }    
           
         }
+        square= image.getImage();
        
-         
+       ImageStorage storage = new ImageStorage();
+       storage.setCircleToSquare(square);
+       square=storage.getCircleToSquare();
         
     }
     
      public BufferedImage getImages(){
        processSquare();
-       square= image.getImage();
        return square;
         
     }
