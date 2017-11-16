@@ -30,11 +30,20 @@ public class ImageStorage {
     BufferedImage CircleToSquare;
     static BufferedImage staticCircleToSquare;
     
+    BufferedImage OverlayCircle;
+    static BufferedImage staticOverlayCircle;
+    
+    
     public ImageStorage(){
          
     }
     
     //setter
+    public void setOverlayCircle(BufferedImage image){
+        this.OverlayCircle = image;
+        staticOverlayCircle= image;
+    }
+    
     public void setCircleToSquare(BufferedImage image){
         this.CircleToSquare=image;
         staticCircleToSquare = image;
@@ -75,6 +84,10 @@ public class ImageStorage {
         return staticEdgeWithCircle;
     }
     
+    public static BufferedImage getOverlayCircle(){
+        return staticOverlayCircle;
+    }
+    
     public BufferedImage getCircleToSquare(){
         return staticCircleToSquare;
     }
@@ -91,6 +104,7 @@ public class ImageStorage {
         return staticNoise;
     }
     
+     
      
       
      

@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Entity.ImageStorage;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
@@ -102,12 +103,15 @@ public class OverlayCircle {
                    
             }   
         }
+        
+        ImageStorage storage = new ImageStorage();
+        storage.setOverlayCircle(OriginalImage);
    
     }
    
   
     public BufferedImage getImage(){
-        return OriginalImage;
+        return ImageStorage.getOverlayCircle();
     }
     
    

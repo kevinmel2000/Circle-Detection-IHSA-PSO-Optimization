@@ -155,11 +155,9 @@ public final class ImprovedHarmonySearch {
                     
                     Controller controller = new Controller();
                     Controller fornewc = new Controller();
-                    System.out.print(Thick +","+CircleColor);
+                    //System.out.print(Thick +","+CircleColor);
                     //untuk menggambar lingkaran 
                     newc= fornewc.DrawCircle(Thick, CircleColor, bestx0, besty0, bestrad, Original, width, height);
-    
-                    
                     //untuk eliminasi 
                     controller.setEdge(Edge);     
                     controller.setParam(bestx0, besty0, bestrad);
