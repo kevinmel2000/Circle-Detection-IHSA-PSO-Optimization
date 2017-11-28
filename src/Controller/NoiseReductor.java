@@ -14,10 +14,10 @@ import java.util.Arrays;
  *
  * @author eek
  */
-public class NoiseReduce {
+public class NoiseReductor {
      BufferedImage img=null;
      BufferedImage gray=null;
-    public NoiseReduce(){
+    public NoiseReductor(){
         
     }
     

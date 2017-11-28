@@ -13,13 +13,13 @@ import java.awt.image.BufferedImage;
  *
  * @author eek
  */
-public class Eliminate {
+public class Eliminator {
     
     BufferedImage Edge;
     BufferedImage Square;
     BufferedImage newImage;
     
-    public Eliminate(){
+    public Eliminator(){
         
     }
     

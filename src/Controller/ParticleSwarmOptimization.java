@@ -229,7 +229,7 @@ public class ParticleSwarmOptimization {
         }  
         for (int i = 0; i < population; i++) {
               //RandomThreePixel(maxValue,minValue,zero,i);
-              RandomThreePixel p = new RandomThreePixel(P,Pijk);
+              RandomThreePixelGenerator p = new RandomThreePixelGenerator(P,Pijk);
               p.Process(maxValue, minValue, zero, height, width);
               x0  =p.getx0();
               y0  =p.gety0();
@@ -268,11 +268,11 @@ public class ParticleSwarmOptimization {
               BufferedImage Circlex = null;
               BufferedImage edgeoverlay = null;
            
-              MidCirclePointAlgorithm lingkaran= new MidCirclePointAlgorithm(width,height);
+              MidCirclePointAlgorithmGenerator lingkaran= new MidCirclePointAlgorithmGenerator(width,height);
               
               lingkaran.drawCircle(xc, yc,rc, width, height,thick);
               Circlex = lingkaran.getImages();
-              EdgeWithCircle newOverlay = new EdgeWithCircle();
+              EdgeWithCircleCombinator newOverlay = new EdgeWithCircleCombinator();
               
               newOverlay.setImage(Edge, Circlex);
               newOverlay.process();         
@@ -291,7 +291,7 @@ public class ParticleSwarmOptimization {
       y=Particle[index].getParticleVector(1);
       r=Particle[index].getParticleVector(2);
       
-      CheckBoundary check = new CheckBoundary();
+      BoundaryChecker check = new BoundaryChecker();
       check.setItem(x, y, r, height, width);
       check.checking();
       out= check.getBool();
@@ -301,7 +301,7 @@ public class ParticleSwarmOptimization {
   
   private void resetParticle(int index){
     //Particle[index]=Particle[bestIndex] ;
-    RandomThreePixel p = new RandomThreePixel(P,Pijk);
+    RandomThreePixelGenerator p = new RandomThreePixelGenerator(P,Pijk);
     int maxValue = sumEdge;
     int minValue=0;
     p.Process(maxValue, minValue, 0, height, width);
@@ -340,11 +340,11 @@ public class ParticleSwarmOptimization {
       BufferedImage Circlex = null;
       BufferedImage edgeoverlay = null;
 
-      MidCirclePointAlgorithm lingkaran= new MidCirclePointAlgorithm(width,height);
+      MidCirclePointAlgorithmGenerator lingkaran= new MidCirclePointAlgorithmGenerator(width,height);
 
       lingkaran.drawCircle(x, y,r, width, height,1);
       Circlex = lingkaran.getImages();
-      EdgeWithCircle newOverlay = new EdgeWithCircle();
+      EdgeWithCircleCombinator newOverlay = new EdgeWithCircleCombinator();
 
       newOverlay.setImage(Edge, Circlex);
       newOverlay.process();         

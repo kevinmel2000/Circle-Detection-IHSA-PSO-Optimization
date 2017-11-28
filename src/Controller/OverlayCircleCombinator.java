@@ -13,7 +13,7 @@ import java.awt.image.BufferedImage;
  *
  * @author eek
  */
-public class OverlayCircle {
+public class OverlayCircleCombinator {
     BufferedImage OriginalImage= null;
     BufferedImage CircleImage=null;
     BufferedImage EdgeImage = null;
@@ -26,7 +26,7 @@ public class OverlayCircle {
     Color newColor = Color.white;
     int width, height;
     
-    public OverlayCircle(){
+    public OverlayCircleCombinator(){
         
     }
     

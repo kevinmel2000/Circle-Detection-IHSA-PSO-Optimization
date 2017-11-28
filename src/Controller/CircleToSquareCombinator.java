@@ -18,13 +18,13 @@ import java.awt.image.BufferedImage;
  *
  * @author eek
  */
-public class CircleToSquare {
+public class CircleToSquareCombinator {
     public  BitmapStorage image;
     public BufferedImage square ;
     public int x0,y0,rad;
     public int width , height;
    
-    public CircleToSquare(final int imageWidth, final int imageHeight){
+    public CircleToSquareCombinator(final int imageWidth, final int imageHeight){
        this.image = new BitmapStorage(imageWidth, imageHeight);
        width = imageWidth;
        height= imageHeight;

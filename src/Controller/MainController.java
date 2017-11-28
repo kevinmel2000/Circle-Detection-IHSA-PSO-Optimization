@@ -18,7 +18,7 @@ import javax.swing.UnsupportedLookAndFeelException;
  *
  * @author eek
  */
-public class Controller {
+public class MainController {
     BufferedImage OriginalImage;
     BufferedImage Edge;
     BufferedImage Square;
@@ -45,7 +45,7 @@ public class Controller {
     float jC=0;
     int NS;
     int sumCircle;
-    public Controller(){
+    public MainController(){
         
     }
     
@@ -58,7 +58,7 @@ public class Controller {
     public void MedianFilter(BufferedImage OriginalImage, int iteration){
         
         for (int i = 0; i < iteration; i++) {
-            NoiseReduce reduce= new NoiseReduce();
+            NoiseReductor reduce= new NoiseReductor();
             reduce.setImage(OriginalImage);
             reduce.medianFilter(kw, kh);
             ClearImage=reduce.getImage();
@@ -102,11 +102,11 @@ public class Controller {
         BufferedImage Circlex = null;
         BufferedImage t=null;
         BufferedImage circleoverlay=null; 
-        MidCirclePointAlgorithm lingkaran= new MidCirclePointAlgorithm(width,height);
+        MidCirclePointAlgorithmGenerator lingkaran= new MidCirclePointAlgorithmGenerator(width,height);
         lingkaran.drawCircle(xcenter, ycenter,radius, width, height,thick);
         Circlex = lingkaran.getImages();
         //Lingkaran + gambar aseli
-        OverlayCircle overlay = new OverlayCircle(); 
+        OverlayCircleCombinator overlay = new OverlayCircleCombinator(); 
         
         //untuk gabung antara gambar asli + lingkaran
         overlay.setImage(original, Circlex, selectColor);
@@ -116,7 +116,7 @@ public class Controller {
     }
     
     public void HarmonySearch(boolean multiple, String algorithm,double parstatic,double bwstatic){
-         ImprovedHarmonySearch ihs = new ImprovedHarmonySearch(Edge,OriginalImage,multiple,SelectColor,thick,algorithm);
+         ImprovedHarmonySearchManager ihs = new ImprovedHarmonySearchManager(Edge,OriginalImage,multiple,SelectColor,thick,algorithm);
          ihs.setStaticParam(parstatic, bwstatic); 
          x0 = ihs.getx0();
          y0= ihs.gety0();
@@ -131,11 +131,11 @@ public class Controller {
          BufferedImage edgeoverlay = null;
          width = edge1.getWidth();
          height= edge1.getHeight();
-         MidCirclePointAlgorithm lingkaran= new MidCirclePointAlgorithm(width,height);
+         MidCirclePointAlgorithmGenerator lingkaran= new MidCirclePointAlgorithmGenerator(width,height);
          lingkaran.drawCircle(xcenter, ycenter,radius, width, height,thick);
          Circlex = lingkaran.getImages();
         
-         EdgeWithCircle newOverlay = new EdgeWithCircle();
+         EdgeWithCircleCombinator newOverlay = new EdgeWithCircleCombinator();
          newOverlay.setImage(edge1, Circlex);
          newOverlay.process();
         
@@ -161,7 +161,7 @@ public class Controller {
             int w = Edge.getWidth();
             int h = Edge.getHeight();
             BufferedImage temp=null;
-            CircleToSquare tosquare = new CircleToSquare(w,h);
+            CircleToSquareCombinator tosquare = new CircleToSquareCombinator(w,h);
             tosquare.setParam(x0, y0, rad1);
             tosquare.processSquare();
             temp= tosquare.getImages();
@@ -171,7 +171,7 @@ public class Controller {
             int w= width;
             int h= height;
             BufferedImage temp=null;
-            CircleToSquare tosquare = new CircleToSquare(w,h);
+            CircleToSquareCombinator tosquare = new CircleToSquareCombinator(w,h);
             tosquare.setParam(x0, y0, rad1);
             tosquare.processSquare();
             temp= tosquare.getImages();
@@ -181,7 +181,7 @@ public class Controller {
     }
     
     public void toSquareCircleHole(int x0, int y0,int rad,int width, int height){
-        CircleAndSquare c = new CircleAndSquare();
+        CircleAndSquareCombinator c = new CircleAndSquareCombinator();
         c.setParam(x0, y0, rad);
         c.setSize(width, height);
         c.process();
@@ -191,7 +191,7 @@ public class Controller {
     
     public void EliminatoSquare(){
         //untuk mengeliminasi gambar lingkaran tepi menjadi segi empat
-        Eliminate eliminate = new Eliminate();
+        Eliminator eliminate = new Eliminator();
         eliminate.setAllImage(Edge, Square);
         eliminate.processEliminate();
         Edge= eliminate.getEliminateImage();
@@ -200,7 +200,7 @@ public class Controller {
     
     public void  EliminateSquareHole(){
        
-        Eliminate eliminate = new Eliminate();
+        Eliminator eliminate = new Eliminator();
         eliminate.setAllImage(Edge, SquareHoleCircle);
         eliminate.processEliminate();
         Edge= eliminate.getEliminateImage();
@@ -209,7 +209,7 @@ public class Controller {
     
     public void StandarCircle(int width,int height, int x0, int y0, int rad){
         //MCA standar htam putih tanpa background
-        MidCirclePointAlgorithm MCA = new  MidCirclePointAlgorithm(width,height);
+        MidCirclePointAlgorithmGenerator MCA = new  MidCirclePointAlgorithmGenerator(width,height);
         MCA.drawCircle(x0, y0, rad, width, height, 1);
         BufferedImage tempCircle = MCA.getImages();
         StandarCircle= tempCircle;
@@ -219,7 +219,7 @@ public class Controller {
         //Circle dengan lobang
         //harus masukan parameter w,h, x0,y0,rad.
         //panggil solidcircle
-        FillCircle fill = new FillCircle(width,height);
+        FillCircleGenerator fill = new FillCircleGenerator(width,height);
         fill.setParam(x0, y0, rad);
         fill.eliminate2(); //biar berlubang
         SolidCircle= fill.getImage1();
@@ -230,7 +230,7 @@ public class Controller {
          //Circle solid tanpa lubang
         //harus masukan parameter w,h, x0,y0,rad.
         //panggil solidcircle
-        FillCircle fill = new FillCircle(width,height);
+        FillCircleGenerator fill = new FillCircleGenerator(width,height);
         fill.setParam(x0, y0, rad);
         fill.justCircle();
         SolidCircle2= fill.getImage1();
@@ -241,7 +241,7 @@ public class Controller {
     public void MultipleDetection(boolean multiple, String algorithm,double parstatic,double bwstatic){
         //ini untuk multiple detection
         
-         ImprovedHarmonySearch ihs = new ImprovedHarmonySearch(Edge,OriginalImage,multiple,SelectColor,thick,algorithm);
+         ImprovedHarmonySearchManager ihs = new ImprovedHarmonySearchManager(Edge,OriginalImage,multiple,SelectColor,thick,algorithm);
          ihs.setStaticParam(parstatic, bwstatic); 
          x0=ihs.getx0();
          y0=ihs.gety0();

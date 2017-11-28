@@ -18,7 +18,7 @@ import java.util.Random;
  *
  * @author eek
  */
-public final class ImprovedHarmonySearch {
+public final class ImprovedHarmonySearchManager {
     
     private int hmSize;
     private int cycles;
@@ -67,7 +67,7 @@ public final class ImprovedHarmonySearch {
     
     int xtemp, ytemp,rtemp;
     
-    public ImprovedHarmonySearch(BufferedImage Edge,BufferedImage Original, boolean multiple,String CircleColor,int Thick, String Algo){
+    public ImprovedHarmonySearchManager(BufferedImage Edge,BufferedImage Original, boolean multiple,String CircleColor,int Thick, String Algo){
         if (multiple==false){ //detect single circle
                 algo=Algo;
                 this.Edge= Edge;
@@ -153,8 +153,8 @@ public final class ImprovedHarmonySearch {
                     bestx0=best[0]; 
                     
                     
-                    Controller controller = new Controller();
-                    Controller fornewc = new Controller();
+                    MainController controller = new MainController();
+                    MainController fornewc = new MainController();
                     //System.out.print(Thick +","+CircleColor);
                     //untuk menggambar lingkaran 
                     newc= fornewc.DrawCircle(Thick, CircleColor, bestx0, besty0, bestrad, Original, width, height);
@@ -289,7 +289,7 @@ public final class ImprovedHarmonySearch {
         
           for (int i = 0; i < hmSize; i++) {
               //RandomThreePixel(maxValue,minValue,zero,i);
-              RandomThreePixel p = new RandomThreePixel(P,Pijk);
+              RandomThreePixelGenerator p = new RandomThreePixelGenerator(P,Pijk);
               p.Process(maxValue, minValue, zero, height, width);
               x0  =p.getx0();
               y0  =p.gety0();
@@ -327,11 +327,11 @@ public final class ImprovedHarmonySearch {
               BufferedImage Circlex = null;
               BufferedImage edgeoverlay = null;
            
-              MidCirclePointAlgorithm lingkaran= new MidCirclePointAlgorithm(width,height);
+              MidCirclePointAlgorithmGenerator lingkaran= new MidCirclePointAlgorithmGenerator(width,height);
               
               lingkaran.drawCircle(xc, yc,rc, width, height,thick);
               Circlex = lingkaran.getImages();
-              EdgeWithCircle newOverlay = new EdgeWithCircle();
+              EdgeWithCircleCombinator newOverlay = new EdgeWithCircleCombinator();
               
               newOverlay.setImage(Edge, Circlex);
               newOverlay.process();         
@@ -445,7 +445,7 @@ public final class ImprovedHarmonySearch {
                             yj= newHarmonyMemoryVector.getPixelVectorY(1);
                             yk= newHarmonyMemoryVector.getPixelVectorY(2);
 
-                            Determinan det = new Determinan();
+                            DeterminanGenerator det = new DeterminanGenerator();
                             det.setDeterminanx(xi, xj, xk);
                             det.setDeterminany(yi, yj, yk);
                             det.prosesDeterminan();
@@ -454,7 +454,7 @@ public final class ImprovedHarmonySearch {
                             rtemp =(int) det.gety0();
 
 
-                            CheckBoundary check = new CheckBoundary();
+                            BoundaryChecker check = new BoundaryChecker();
                             check.setItem(xtemp, ytemp, rtemp, height, width);
                             check.checking();
                             out= check.getBool();
@@ -522,11 +522,11 @@ public final class ImprovedHarmonySearch {
       BufferedImage Circlex = null;
       BufferedImage edgeoverlay = null;
 
-      MidCirclePointAlgorithm lingkaran= new MidCirclePointAlgorithm(width,height);
+      MidCirclePointAlgorithmGenerator lingkaran= new MidCirclePointAlgorithmGenerator(width,height);
 
       lingkaran.drawCircle(x0, y0,rad, width, height,1);
       Circlex = lingkaran.getImages();
-      EdgeWithCircle newOverlay = new EdgeWithCircle();
+      EdgeWithCircleCombinator newOverlay = new EdgeWithCircleCombinator();
 
       newOverlay.setImage(Edge, Circlex);
       newOverlay.process();         

@@ -13,11 +13,11 @@ import java.awt.image.BufferedImage;
  *
  * @author eek
  */
-public class CircleAndSquare {
+public class CircleAndSquareCombinator {
     int width,height,x0,y0,rad;
     BufferedImage Square;
     
-    public CircleAndSquare(){
+    public CircleAndSquareCombinator(){
         
     }
     
@@ -33,7 +33,7 @@ public class CircleAndSquare {
     }
      
     public void process(){
-        Controller control = new Controller();
+        MainController control = new MainController();
         control.setParam(x0, y0, rad);
         control.setSize(width, height);
 

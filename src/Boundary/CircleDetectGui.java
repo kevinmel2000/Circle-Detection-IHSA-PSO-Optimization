@@ -5,7 +5,7 @@
  */
 package Boundary;
 
-import Controller.Controller;
+import Controller.MainController;
 
 import Entity.Parameter;
 import Entity.Parameter_PSO;
@@ -886,7 +886,7 @@ int population;
          
          width = originalImage.getWidth();
          height = originalImage.getHeight();
-        Controller controller = new Controller();
+        MainController controller = new MainController();
        
         if (kernel!="null") {
              controller.SetKernel(kernel);       
@@ -933,7 +933,7 @@ int population;
         width = originalImage.getWidth();
         height = originalImage.getHeight();
 
-        Controller controller = new Controller();
+        MainController controller = new MainController();
         if (kernel!="null") {
             controller.SetKernel(kernel);       
             int kwidth = controller.getKw();
@@ -972,7 +972,7 @@ int population;
           String selectColor = (String) ComboColor.getSelectedItem();
           String selectThick = (String) ComboThick.getSelectedItem();
 
-          Controller controller = new Controller();
+          MainController controller = new MainController();
           controller.setImage(originalImage);
           
           controller.setThickStatic(1);
@@ -1079,10 +1079,12 @@ int population;
             if (ImageType.getSelectedIndex()==2) { //real pic
             combokernel.setEnabled(true);
             NoiseReductionButton.setEnabled(true);
-             combokernel.setSelectedIndex(2);
+             combokernel.setSelectedIndex(3);
              multipleDetect.setEnabled(false);
              SingleDetectButton.setEnabled(false);
-             sliderTreshold.setValue(180);
+             sliderTreshold.setValue(200);
+             comborat.setSelectedIndex(18);
+             
             }
         }
         
@@ -1130,7 +1132,7 @@ int population;
 
             Parameter param = new Parameter(cycles, memorySize, considerationRate, parMin, parMaks, bwMin, bwMaks);
 
-            Controller  controller = new Controller ();
+            MainController  controller = new MainController ();
             controller.setEdge(tempEdge);
             controller.setOriginalImage(originalImage);
             controller.setThick(selectThick);
@@ -1203,7 +1205,7 @@ int population;
 
         Parameter param = new Parameter(cycles, memorySize, considerationRate, parMin, parMaks, bwMin, bwMaks);
 
-        Controller controller = new Controller();
+        MainController controller = new MainController();
        
         controller.setThick(selectThick);
         controller.setColor(selectColor);
@@ -1371,7 +1373,7 @@ int population;
         String selectColor = (String) ComboColor.getSelectedItem();
         Algo="PSO";
        Parameter_PSO param = new Parameter_PSO(Iteration, Vmax, Population);
-       Controller  controller = new Controller();
+       MainController  controller = new MainController();
        controller.PSO(tempEdge,population);
        x=controller.getx0();
        y=controller.gety0();

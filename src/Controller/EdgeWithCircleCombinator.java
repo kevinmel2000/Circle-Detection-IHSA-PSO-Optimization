@@ -13,7 +13,7 @@ import java.awt.image.BufferedImage;
  *
  * @author eek
  */
-public class EdgeWithCircle {
+public class EdgeWithCircleCombinator {
     BufferedImage Edge= null;
     BufferedImage circle = null;
     BufferedImage newImage = null;
@@ -36,7 +36,7 @@ public class EdgeWithCircle {
     float sumC,ns;
     
     
-    public EdgeWithCircle(){
+    public EdgeWithCircleCombinator(){
         
     }
     

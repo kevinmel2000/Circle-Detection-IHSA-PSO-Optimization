@@ -11,7 +11,7 @@ import Entity.PixelVector;
  *
  * @author eek
  */
-public class RandomThreePixel {
+public class RandomThreePixelGenerator {
     int SumEdge;
     private PixelVector[] P;
     private PixelVector[] Pijk;
@@ -19,7 +19,7 @@ public class RandomThreePixel {
     int xi,xj,xk;
     int yi,yj,yk;
     
-    public RandomThreePixel(PixelVector[] P1,PixelVector[] Pijk1){
+    public RandomThreePixelGenerator(PixelVector[] P1,PixelVector[] Pijk1){
         P=P1;
         Pijk=Pijk1;
         
@@ -27,7 +27,7 @@ public class RandomThreePixel {
     
     public void Process(int maxValue,int minValue,int zero, int height,int width){
          Randomizer rand = new Randomizer();
-         CheckBoundary check = new CheckBoundary(); 
+         BoundaryChecker check = new BoundaryChecker(); 
                     int x1=0;
                     int y1=0;  
                     boolean out= false;
@@ -56,7 +56,7 @@ public class RandomThreePixel {
                     
                     // ini bakal di pindahin ke vector Ca;
                     
-                    Determinan det = new Determinan();
+                    DeterminanGenerator det = new DeterminanGenerator();
                     det.setDeterminanx(X1, X2, X3);
                     det.setDeterminany(Y1, Y2, Y3);
                     det.prosesDeterminan();
