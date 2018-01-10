@@ -85,9 +85,9 @@ public final class ImprovedHarmonySearchManager {
                     int xj= harmonyMemory[i].getPixelVectorX(1);
                     int xk= harmonyMemory[i].getPixelVectorX(2);
 
-                    int yi= harmonyMemory[i].getPixelVectorX(0);
-                    int yj= harmonyMemory[i].getPixelVectorX(1);
-                    int yk= harmonyMemory[i].getPixelVectorX(2);
+                    int yi= harmonyMemory[i].getPixelVectorY(0);
+                    int yj= harmonyMemory[i].getPixelVectorY(1);
+                    int yk= harmonyMemory[i].getPixelVectorY(2);
 
                     int x0=  harmonyMemory[i].getSolutionVector(0);
                     int y0=  harmonyMemory[i].getSolutionVector(1);
@@ -109,9 +109,9 @@ public final class ImprovedHarmonySearchManager {
                     int xj= harmonyMemory[i].getPixelVectorX(1);
                     int xk= harmonyMemory[i].getPixelVectorX(2);
 
-                    int yi= harmonyMemory[i].getPixelVectorX(0);
-                    int yj= harmonyMemory[i].getPixelVectorX(1);
-                    int yk= harmonyMemory[i].getPixelVectorX(2);
+                    int yi= harmonyMemory[i].getPixelVectorY(0);
+                    int yj= harmonyMemory[i].getPixelVectorY(1);
+                    int yk= harmonyMemory[i].getPixelVectorY(2);
 
                     int x0=  harmonyMemory[i].getSolutionVector(0);
                     int y0=  harmonyMemory[i].getSolutionVector(1);
@@ -481,26 +481,26 @@ public final class ImprovedHarmonySearchManager {
             fit= calculateFitness(x0,y0,rad);
             newHarmonyMemoryVector.setFitness(fit);
             
-//               System.out.print("iterasi ke= "+generation+"\n");
-//               System.out.print("NHV xi: "+xi+",xj: "+xj+", xk: "+xk+"\n");
-//               System.out.print("    yi: "+yi+",yj: "+yj+", yk: "+yk+"\n");
-//               System.out.print("    x0: "+x0+",y0: "+y0+"  rad:"+rad+"\n");
-//               System.out.print("f(x):"+fit+"\n");
-//               System.out.print("=========================================\n");
+               System.out.print("iterasi ke= "+generation+"\n");
+               System.out.print("NHV xi: "+xi+",xj: "+xj+", xk: "+xk+"\n");
+               System.out.print("    yi: "+yi+",yj: "+yj+", yk: "+yk+"\n");
+               System.out.print("    x0: "+x0+",y0: "+y0+"  rad:"+rad+"\n");
+               System.out.print("f(x):"+fit+"\n");
+               System.out.print("=========================================\n");
             
             
             int indexOfWorstHarmony = getIndexOfWorstHarmony(harmonyMemory);
             double newHarmonySolution = newHarmonyMemoryVector.getFitness();
             double worstHarmonySolution = harmonyMemory[indexOfWorstHarmony].getFitness();
             
-//            System.out.print("new : "+newHarmonySolution+", worst : "+worstHarmonySolution+"\n");
+            System.out.print("new : "+newHarmonySolution+", worst : "+worstHarmonySolution+"\n");
             
             
             if(newHarmonySolution < worstHarmonySolution)
             {
-//                System.out.print("HM baru lebih baik dari pada yang buruk\n");
-//                System.out.print("hm  buruk lama   dengan fx = "+worstHarmonySolution+"\n");
-//                System.out.print("hm  baru  dengan fx        = "+newHarmonySolution+"\n");
+                System.out.print("HM baru lebih baik dari pada yang buruk\n");
+                System.out.print("hm  buruk lama   dengan fx = "+worstHarmonySolution+"\n");
+                System.out.print("hm  baru  dengan fx        = "+newHarmonySolution+"\n");
                 harmonyMemory[indexOfWorstHarmony] = newHarmonyMemoryVector;    
             }
             

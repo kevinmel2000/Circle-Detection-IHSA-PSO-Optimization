@@ -957,6 +957,9 @@ int population;
         algorithmchoose.setEnabled(true);
         multipleDetect.setEnabled(true);
         pso_detect.setEnabled(true);
+        System.out.print("low;"+lowT);
+        System.out.print("ratio="+ratio);
+        
     }//GEN-LAST:event_EdgeButtonActionPerformed
 
     private void functionCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_functionCheckActionPerformed
