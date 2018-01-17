@@ -9,7 +9,7 @@ import Entity.PixelVector;
 
 /**
  *
- * @author eek
+ * @author Nanda-PC
  */
 public class RandomThreePixelGenerator {
     int SumEdge;

@@ -7,7 +7,7 @@ package Controller;
 
 /**
  *
- * @author eek
+ * @author Nanda-PC
  */
 public class BoundaryChecker {
      int centerX,centerY,rad,height,width;

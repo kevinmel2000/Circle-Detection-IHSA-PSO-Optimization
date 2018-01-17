@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 /**
  *
- * @author eek
+ * @author Nanda-PC
  */
 public class NoiseReductor {
      BufferedImage img=null;

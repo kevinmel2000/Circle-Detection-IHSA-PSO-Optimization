@@ -11,7 +11,7 @@ import java.util.Random ;
 
 /**
  *
- * @author eek
+ * @author Nanda-PC
  */
 public class Randomizer {
     int max;

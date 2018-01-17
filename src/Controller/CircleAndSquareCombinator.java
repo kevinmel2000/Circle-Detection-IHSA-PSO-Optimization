@@ -11,7 +11,7 @@ import java.awt.image.BufferedImage;
 
 /**
  *
- * @author eek
+ * @author Nanda-PC
  */
 public class CircleAndSquareCombinator {
     int width,height,x0,y0,rad;

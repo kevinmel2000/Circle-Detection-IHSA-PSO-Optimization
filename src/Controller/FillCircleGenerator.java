@@ -10,7 +10,7 @@ import java.awt.image.BufferedImage;
 
 /**
  *
- * @author eek
+ * @author Nanda-PC
  */
 
 //jangan lupa import MCA disini untuk membuat lingkaran baru

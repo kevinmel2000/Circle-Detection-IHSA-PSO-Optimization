@@ -16,7 +16,7 @@ import java.util.Random;
 
 /**
  *
- * @author eek
+ * @author Nanda-PC
  */
 public final class ImprovedHarmonySearchManager {
     
@@ -340,7 +340,6 @@ public final class ImprovedHarmonySearchManager {
               harmonyMemory[i].setFitness(jC);
           }    
           
-       
       }
       
     

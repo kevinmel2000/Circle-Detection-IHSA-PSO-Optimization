@@ -30,7 +30,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
- * @author eek
+ * @author Nanda-PC
  */
 public class CircleDetectGui extends javax.swing.JFrame {
     

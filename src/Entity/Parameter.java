@@ -7,7 +7,7 @@ package Entity;
 
 /**
  *
- * @author eek
+ * @author Nanda-PC
  */
 public class Parameter {
     private static int cycles;

@@ -10,7 +10,7 @@ import java.awt.image.BufferedImage;
 
 /**
  *
- * @author eek
+ * @author Nanda-PC
  */
 public class EdgePixel {
     private BufferedImage sourceImage;

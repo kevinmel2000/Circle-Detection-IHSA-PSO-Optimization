@@ -7,7 +7,7 @@ package Controller;
 
 /**
  *
- * @author eek
+ * @author Nanda-PC
  */
 import Entity.BitmapStorage;
 import Entity.ImageStorage;
@@ -16,7 +16,7 @@ import java.awt.image.BufferedImage;
 
 /**
  *
- * @author eek
+ * @author Nanda-PC
  */
 public class CircleToSquareCombinator {
     public  BitmapStorage image;

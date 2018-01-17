@@ -16,7 +16,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
- * @author eek
+ * @author Nanda-PC
  */
 public class MainController {
     BufferedImage OriginalImage;

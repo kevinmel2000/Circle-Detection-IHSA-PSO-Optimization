@@ -7,7 +7,7 @@ package Controller;
 
 /**
  *
- * @author eek
+ * @author Nanda-PC
  */
 public class KernelChooser {
     String Kernel=null;

@@ -7,7 +7,7 @@ package Entity;
 
 /**
  *
- * @author eek
+ * @author Nanda-PC
  */
 import java.awt.Color;
 import java.awt.Graphics;

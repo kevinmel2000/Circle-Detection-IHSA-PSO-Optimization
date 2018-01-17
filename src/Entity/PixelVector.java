@@ -7,7 +7,7 @@ package Entity;
 
 /**
  *
- * @author eek
+ * @author Nanda-PC
  */
 public class PixelVector {
     int [][]coor;

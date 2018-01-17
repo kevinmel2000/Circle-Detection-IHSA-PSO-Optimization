@@ -11,7 +11,7 @@ import java.awt.image.BufferedImage;
 
 /**
  *
- * @author eek
+ * @author NANDA-PC
  */
 public class Eliminator {
     

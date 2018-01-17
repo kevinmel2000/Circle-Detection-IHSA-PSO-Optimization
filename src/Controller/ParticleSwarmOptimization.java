@@ -145,7 +145,7 @@ public class ParticleSwarmOptimization {
   }
   
   private  int minimum(){
-    // Returns an array index.
+
         int winner = 0;
         boolean foundNewWinner = false;
         boolean done = false;
@@ -155,8 +155,8 @@ public class ParticleSwarmOptimization {
             foundNewWinner = false;
             for(int i = 0; i < population; i++)
             {
-                if(i != winner){             // Avoid self-comparison.
-                    // The minimum has to be in relation to the Target.
+                if(i != winner){          
+                 
                     if( testProblem(i) < testProblem(winner) ){
                         winner = i;
                         foundNewWinner = true;

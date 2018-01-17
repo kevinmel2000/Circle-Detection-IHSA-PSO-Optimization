@@ -7,7 +7,7 @@ package Controller;
 
 /**
  *
- * @author eek
+ * @author Nanda-PC
  */
 import Entity.BitmapStorage;
 import java.awt.Color;
@@ -16,7 +16,7 @@ import java.awt.image.BufferedImage;
 
 /**
  *
- * @author eek
+ * @author Nanda-PC
  */
 public class MidCirclePointAlgorithmGenerator {
 	public  BitmapStorage image;

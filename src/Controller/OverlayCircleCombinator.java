@@ -11,7 +11,7 @@ import java.awt.image.BufferedImage;
 
 /**
  *
- * @author eek
+ * @author Nanda-PC
  */
 public class OverlayCircleCombinator {
     BufferedImage OriginalImage= null;
