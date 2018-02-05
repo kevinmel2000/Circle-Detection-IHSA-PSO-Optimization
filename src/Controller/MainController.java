@@ -33,7 +33,8 @@ public class MainController {
     BufferedImage Circle=null;
     BufferedImage ClearImage=null;
     String SelectColor ;
-  
+   private javax.swing.JProgressBar pbar;
+   boolean getProgressBool;
     
     private int width, height;
 
@@ -115,13 +116,15 @@ public class MainController {
         return circleoverlay;
     }
     
-    public void HarmonySearch(boolean multiple, String algorithm,double parstatic,double bwstatic){
-         ImprovedHarmonySearchManager ihs = new ImprovedHarmonySearchManager(Edge,OriginalImage,multiple,SelectColor,thick,algorithm);
+    public void HarmonySearch(boolean multiple, String algorithm,double parstatic,double bwstatic,  javax.swing.JProgressBar pbar){
+         this.pbar= pbar;
+         ImprovedHarmonySearchManager ihs = new ImprovedHarmonySearchManager(Edge,OriginalImage,multiple,SelectColor,thick, algorithm,  pbar);
          ihs.setStaticParam(parstatic, bwstatic); 
          x0 = ihs.getx0();
          y0= ihs.gety0();
          rad1= ihs.getRad();
          Circle = DrawCircle (thick,SelectColor,x0,y0,rad1,OriginalImage, OriginalImage.getWidth(), OriginalImage.getHeight());
+        getProgressBool= ihs.getProgressBool();
     }
 
     public void DrawCircleWithEdge(BufferedImage edge1,int xcenter, int ycenter, int radius){
@@ -238,10 +241,10 @@ public class MainController {
     }
     
      
-    public void MultipleDetection(boolean multiple, String algorithm,double parstatic,double bwstatic){
+    public void MultipleDetection(boolean multiple, String algorithm,double parstatic,double bwstatic,  javax.swing.JProgressBar pbar){
         //ini untuk multiple detection
-        
-         ImprovedHarmonySearchManager ihs = new ImprovedHarmonySearchManager(Edge,OriginalImage,multiple,SelectColor,thick,algorithm);
+        this.pbar = pbar;
+         ImprovedHarmonySearchManager ihs = new ImprovedHarmonySearchManager(Edge,OriginalImage,multiple,SelectColor,thick,algorithm,pbar);
          ihs.setStaticParam(parstatic, bwstatic); 
          x0=ihs.getx0();
          y0=ihs.gety0();
@@ -386,6 +389,10 @@ public class MainController {
     
     public boolean getBool(){
         return out;
+    }
+    
+    public boolean getprogressBool(){
+        return getProgressBool;
     }
     
     

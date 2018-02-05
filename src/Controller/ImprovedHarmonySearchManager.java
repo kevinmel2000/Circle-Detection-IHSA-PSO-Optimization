@@ -35,7 +35,7 @@ public final class ImprovedHarmonySearchManager {
     
     
     private HarmonyMemory[] harmonyMemory;
-  
+    
     
     
     private int decTotal;
@@ -66,8 +66,11 @@ public final class ImprovedHarmonySearchManager {
     public String parameterAkhir;
     
     int xtemp, ytemp,rtemp;
+    private javax.swing.JProgressBar pbar;
+    public boolean progress_done=false;  
     
-    public ImprovedHarmonySearchManager(BufferedImage Edge,BufferedImage Original, boolean multiple,String CircleColor,int Thick, String Algo){
+    public ImprovedHarmonySearchManager(BufferedImage Edge,BufferedImage Original, boolean multiple,String CircleColor,int Thick, String Algo, javax.swing.JProgressBar pbar){
+        this.pbar=pbar;
         if (multiple==false){ //detect single circle
                 algo=Algo;
                 this.Edge= Edge;
@@ -79,6 +82,8 @@ public final class ImprovedHarmonySearchManager {
 
                 HMlama= new String[hmSize];
                 HMbaru = new String [hmSize];
+                
+                
                 for (int i = 0; i < hmSize; i++) {
                   
                     int xi= harmonyMemory[i].getPixelVectorX(0);
@@ -97,8 +102,7 @@ public final class ImprovedHarmonySearchManager {
                     HMlama[i]= "HM lama ["+i+"] yi:"+yi+",yj: "+yj+", yk: "+yk+" x0: "+x0+",y0: "+y0+"  rad:"+rad+ " f(x): "+fit+"\n" ;
                    
                }
-                
-                
+               
                 improviseNewHarmony();
                 
                
@@ -177,7 +181,12 @@ public final class ImprovedHarmonySearchManager {
     }
     
    
-   
+    /*public   class single_thread implements Runnable{
+		public void run(){
+                
+                 progress_done=true;
+		}
+	}*/
    
 
     
@@ -193,6 +202,10 @@ public final class ImprovedHarmonySearchManager {
     
     public boolean getBool(){
         return cir;
+    }
+    
+    public boolean getProgressBool(){
+        return  progress_done;
     }
     
     public BufferedImage geti(){
@@ -480,33 +493,37 @@ public final class ImprovedHarmonySearchManager {
             fit= calculateFitness(x0,y0,rad);
             newHarmonyMemoryVector.setFitness(fit);
             
-               System.out.print("iterasi ke= "+generation+"\n");
-               System.out.print("NHV xi: "+xi+",xj: "+xj+", xk: "+xk+"\n");
-               System.out.print("    yi: "+yi+",yj: "+yj+", yk: "+yk+"\n");
-               System.out.print("    x0: "+x0+",y0: "+y0+"  rad:"+rad+"\n");
-               System.out.print("f(x):"+fit+"\n");
-               System.out.print("=========================================\n");
+               //System.out.print("iterasi ke= "+generation+"\n");
+               //System.out.print("NHV xi: "+xi+",xj: "+xj+", xk: "+xk+"\n");
+               //System.out.print("    yi: "+yi+",yj: "+yj+", yk: "+yk+"\n");
+               //System.out.print("    x0: "+x0+",y0: "+y0+"  rad:"+rad+"\n");
+               //System.out.print("f(x):"+fit+"\n");
+               //System.out.print("=========================================\n");
             
             
             int indexOfWorstHarmony = getIndexOfWorstHarmony(harmonyMemory);
             double newHarmonySolution = newHarmonyMemoryVector.getFitness();
             double worstHarmonySolution = harmonyMemory[indexOfWorstHarmony].getFitness();
             
-            System.out.print("new : "+newHarmonySolution+", worst : "+worstHarmonySolution+"\n");
+            //System.out.print("new : "+newHarmonySolution+", worst : "+worstHarmonySolution+"\n");
             
             
             if(newHarmonySolution < worstHarmonySolution)
             {
-                System.out.print("HM baru lebih baik dari pada yang buruk\n");
-                System.out.print("hm  buruk lama   dengan fx = "+worstHarmonySolution+"\n");
-                System.out.print("hm  baru  dengan fx        = "+newHarmonySolution+"\n");
+                //System.out.print("HM baru lebih baik dari pada yang buruk\n");
+                //System.out.print("hm  buruk lama   dengan fx = "+worstHarmonySolution+"\n");
+                //System.out.print("hm  baru  dengan fx        = "+newHarmonySolution+"\n");
                 harmonyMemory[indexOfWorstHarmony] = newHarmonyMemoryVector;    
             }
             
             
             generation++;
+            pbar.setValue(generation); //Set value
+	    pbar.repaint(); //Refresh graphics
+	    
+            
         }while(generation < cycles);
-
+       
         
       }
       
